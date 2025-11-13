@@ -8,9 +8,12 @@ dotenv.config();
 
 const app = express();
 
+const clientURL = process.env.CLIENT_URL || "http://localhost:5173";
+
 app.use(cors({
-  origin: 'http://localhost:5173'
+  origin: clientURL
 }));
+
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
